@@ -1,30 +1,28 @@
-
 const initState = {
-    searchTerm: '',
-    projects: [],
-    fetching: false
-}
+  searchTerm: '',
+  projects: [],
+  fetching: false,
+};
 
 const reducer = (state = initState, action) => {
-    switch (action.type) {
-        case 'CHANGE_QUERY':
-            // console.log(state)
-            return {
-                ...state,
-                searchTerm: action.value,
-                fetching: true
-            }
-        
-        case 'UPDATE_PROJ':
-            return {
-                ...state,
-                projects: action.projects,
-                fetching: false
-            }
+  switch (action.type) {
+    case 'CHANGE_QUERY':
+      return {
+        ...state,
+        searchTerm: action.value,
+        fetching: true,
+      };
 
-        default:
-            return state;
-    }
-}
+    case 'UPDATE_PROJ':
+      return {
+        ...state,
+        projects: action.projects,
+        fetching: false,
+      };
+
+    default:
+      return state;
+  }
+};
 
 export default reducer;
